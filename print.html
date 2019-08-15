@@ -1,0 +1,60 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<img id="image" src="https://www.wikihow.com/images/1/19/User-Completed-Image-Draw-Disney-Characters-2018.09.24-13.28.59.0.jpg">
+<p id="heigh"></p>
+<p id="widt"></p>
+<button onclick="sizeinpx()">aaa</button>
+ <input onchange="showVal(this.value)" type="range" min="100" max="1000" value="100">
+
+
+<p>Click the button to print the current page.</p>
+
+<button onclick="myFunction()">Print this page</button>
+
+<input onchange='schimbat()' id="scale" value="https://www.wikihow.com/images/1/19/User-Completed-Image-Draw-Disney-Characters-2018.09.24-13.28.59.0.jpg" >
+
+
+<script>
+function showVal(newVal){
+var yourImg = document.getElementById('image');
+
+    yourImg.height = newVal;
+    //yourImg.style.width = '200px';
+var img = document.getElementById('image');
+var width = getSizeInCM(img.width);
+var height = getSizeInCM(img.height);
+
+  document.getElementById("widt").innerHTML = "width="+width+" ";
+  document.getElementById("heigh").innerHTML = "height="+height+" ";
+
+}
+function myFunction() {
+  window.print();
+
+}
+function schimbat(){ 
+var c = document.getElementById("scale").value;
+var image = document.getElementById("image");
+image.src = c;
+alert(c);
+}
+
+/* Convert px to cm */
+function getSizeInCM(sizeInPX) {
+   return sizeInPX * 2.54 / (96 * window.devicePixelRatio)
+};
+function sizeinpx(){
+/* get width and height of an image in cms */
+var img = document.getElementById('image');
+var width = getSizeInCM(img.width);
+var height = getSizeInCM(img.height);
+
+  document.getElementById("widt").innerHTML = "width="+width+" ";
+  document.getElementById("heigh").innerHTML = "height="+height+" ";
+};
+</script>
+</body>
+</html>
